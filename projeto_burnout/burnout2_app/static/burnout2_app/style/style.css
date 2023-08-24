@@ -1,0 +1,76 @@
+/* Estilização para o menu */
+.menu {
+    text-align: center; /* Centraliza os itens horizontalmente */
+    margin-bottom: 20px; /* Adicione um espaço abaixo do menu */
+}
+
+.menu a {
+    display: inline-block; /* Faz os itens ficarem em linha um ao lado do outro */
+    margin: 0 10px; /* Adicione margem horizontal para espaçamento entre os itens */
+    text-decoration: none;
+    color: #333; /* Cor do texto dos itens do menu */
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Estilização para os links */
+a {
+    color: #007bff; /* Cor dos links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline; /* Efeito de sublinhado ao passar o mouse sobre o link */
+}
+/* Estilos para a página inicial */
+/* Estilos para a página inicial */
+body {
+    background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20210923/pngtree-health-care-light-blue-light-shadow-cross-abstract-background-image_904158.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+/* Estilos para o header */
+.header {
+    text-align: center;
+    padding: 20px;
+    background-color: #f2f2f2;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+/* Estilos para a lista de contatos */
+.contacts {
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+}
+
+.contacts ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contacts li {
+    margin-bottom: 20px;
+}
+
+/* Estilos para o link de voltar */
+.back-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back-link a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+}

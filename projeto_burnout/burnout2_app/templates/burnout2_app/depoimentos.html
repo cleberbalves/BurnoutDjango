@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Página de Depoimentos</title>
+    <style>
+        /* Estilização para o menu */
+        .menu {
+            text-align: center; /* Centraliza os itens horizontalmente */
+            margin-bottom: 20px; /* Adicione um espaço abaixo do menu */
+        }
+
+        .menu a {
+            display: inline-block; /* Faz os itens ficarem em linha um ao lado do outro */
+            margin: 0 10px; /* Adicione margem horizontal para espaçamento entre os itens */
+            text-decoration: none;
+            color: #333; /* Cor do texto dos itens do menu */
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* Estilização para os links */
+        a {
+            color: #007bff; /* Cor dos links */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline; /* Efeito de sublinhado ao passar o mouse sobre o link */
+        }
+
+        /* Estilos para a página de depoimentos */
+        body {
+            background-color: #f2f2f2; /* Fundo cinza claro */
+            font-family: Arial, sans-serif; /* Fonte padrão */
+            margin: 0; /* Remove margens padrão */
+            padding: 0; /* Remove espaçamento padrão */
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: #007bff;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            border: 1px solid #443f3f;
+            padding: 10px;
+            position: relative;
+        }
+
+        a.excluir {
+            color: red;
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            text-decoration: none;
+        }
+
+        a.excluir:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'teste' %}">Teste</a>
+        <a href="{% url 'depoimentos' %}">Depoimentos</a>
+        <a href="{% url 'contatos' %}">Contatos</a>
+    </div>
+    <h1>Página de Depoimentos</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <textarea name="depoimento" rows="5" placeholder="Insira seu depoimento"></textarea><br>
+        <button type="submit">Inserir Depoimento</button>
+    </form>
+
+    <ul>
+        {% for depoimento in depoimentos %}
+        <li>
+            {{ depoimento.texto }}
+            <a href="{% url 'excluir_depoimento' depoimento.texto %}" class="excluir">Excluir</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'home' %}">Voltar à Página Inicial</a>
+</body>
+</html>

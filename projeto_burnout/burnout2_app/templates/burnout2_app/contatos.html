@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Página de Contatos</title>
+    <style>
+        /* Estilização para o menu */
+        .menu {
+            text-align: center; /* Centraliza os itens horizontalmente */
+            margin-bottom: 20px; /* Adicione um espaço abaixo do menu */
+        }
+
+        .menu a {
+            display: inline-block; /* Faz os itens ficarem em linha um ao lado do outro */
+            margin: 0 10px; /* Adicione margem horizontal para espaçamento entre os itens */
+            text-decoration: none;
+            color: #333; /* Cor do texto dos itens do menu */
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* Estilização para os links */
+        a {
+            color: #007bff; /* Cor dos links */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline; /* Efeito de sublinhado ao passar o mouse sobre o link */
+        }
+
+        /* Estilização para a página de contatos */
+        body {
+            background-color: #f2f2f2; /* Cor de fundo */
+            font-family: Arial, sans-serif; /* Fonte do texto */
+            padding: 20px; /* Espaçamento interno */
+        }
+
+        .contato {
+            border: 1px solid #ccc; /* Borda para cada contato */
+            padding: 10px; /* Espaçamento interno do contato */
+            margin-bottom: 15px; /* Espaçamento entre contatos */
+            background-color: #fff; /* Cor de fundo do contato */
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <a href="{% url 'home' %}">Página Inicial</a>
+        <a href="{% url 'teste' %}">Teste</a>
+        <a href="{% url 'depoimentos' %}">Depoimentos</a>
+        <a href="{% url 'contatos' %}">Contatos</a>
+    </div>
+
+    <h1>Página de Contatos</h1>
+
+    {% for contato in contatos %}
+    <div class="contato">
+        <h3>{{ contato.nome }}</h3>
+        <p>Telefone: {{ contato.telefone }}</p>
+        <p>Email: {{ contato.email }}</p>
+        <p>Endereço: {{ contato.endereco }}</p>
+    </div>
+    {% endfor %}
+
+</body>
+</html>

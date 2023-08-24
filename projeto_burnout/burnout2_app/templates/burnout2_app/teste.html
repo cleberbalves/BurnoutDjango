@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Página de Teste</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .questao {
+            border: 1px solid #ccc;
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Teste de Burnout</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {% for index, questao in questoes_enum %}
+            <div class="questao">
+                <p>{{ questao.pergunta }}</p>
+                <ul>
+                    {% for opcao in questao.opcoes %}
+                        <li>
+                            <label>
+                                <input type="radio" name="resposta_{{ index }}" value="{{ forloop.counter0 }}" required>
+                                {{ opcao }}
+                            </label>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+        <button type="submit">Enviar Resposta</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultado</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'burnout2_app/css/styles.css' %}">
+</head>
+<body>
+    <h1>Resultado do Quiz</h1>
+    
+    <p>Sua média de respostas é: {{ media }}</p>
+    
+    {% if media <= 3 %}
+    <p>Muito Bem</p>
+    {% else %}
+    <p>Cuidado</p>
+    {% endif %}
+    
+    <form method="post">
+        <button type="submit" name="refazer">Refazer</button>
+    </form>
+    
+    <a href="{% url 'home' %}">Voltar à Página Inicial</a>
+</body>
+</html>
